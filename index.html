@@ -1,105 +1,154 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #242424; -webkit-text-stroke: #242424; background-color: #ffffff}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Courier; color: #242424; -webkit-text-stroke: #242424; background-color: #ffffff; min-height: 17.0px}
-    span.s1 {font-kerning: none}
-  </style>
+<meta charset="UTF-8">
+<title>Quiz - Positionnement</title>
+
+<style>
+:root {
+  --bleu: #103EB8;
+  --orange: #F9902A;
+  --bleu-clair: #C3E7EC;
+  --corail: #DE5858;
+  --fond: #F7FAFC;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--fond);
+}
+
+/* HEADER */
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+header img {
+  height: 50px;
+}
+
+header h1 {
+  color: var(--bleu);
+  margin: 0;
+}
+
+/* CONTAINER */
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* QUESTIONS */
+
+.question {
+  margin-bottom: 25px;
+}
+
+.question h3 {
+  color: var(--bleu);
+}
+
+/* BOUTONS */
+
+button {
+  display: block;
+  margin: 8px 0;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background: var(--bleu-clair);
+  cursor: pointer;
+  text-align: left;
+}
+
+button:hover {
+  background: var(--orange);
+  color: white;
+}
+
+/* RESULTAT */
+
+#result {
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--corail);
+  text-align: center;
+}
+</style>
 </head>
+
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="fr"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;Carrière Quiz - Retour d'Expatriation Stratégique&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Importation de la police Montserrat via Google Fonts --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body { font-family: 'Montserrat', sans-serif; background-color: #f4f7f6; color: #333; line-height: 1.6; padding: 20px; display: flex; justify-content: center; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.quiz-container { max-width: 600px; width: 100%; background: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-top: 12px solid #103EB8; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>h1 { color: #103EB8; font-size: 24px; text-align: center; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 1px; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.question { margin-top: 25px; font-weight: 700; color: #103EB8; font-size: 1.1em; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.options { margin: 15px 0; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>label { display: block; background: #C3E7EC; margin-bottom: 12px; padding: 15px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; border: 1px solid transparent; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>label:hover { background: #FCD3C6; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>input[type="radio"] { margin-right: 12px; transform: scale(1.2); }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>input[type="radio"]:checked + span { font-weight: bold; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>button { display: block; width: 100%; background: #103EB8; color: white; border: none; padding: 18px; font-size: 16px; font-weight: 700; border-radius: 6px; cursor: pointer; margin-top: 30px; transition: background 0.3s; text-transform: uppercase; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>button:hover { background: #F9902A; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#result { margin-top: 25px; padding: 20px; border-radius: 8px; text-align: center; font-weight: 700; display: none; background: #f9f9f9; border: 1px dashed #103EB8; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.footer-note { font-size: 0.8em; text-align: center; color: #888; margin-top: 20px; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="quiz-container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h1&gt;Carrière Quiz&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p style="text-align: center; font-style: italic;"&gt;Validez votre positionnement stratégique&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;form id="quizForm"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;!-- Question 1 --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="question"&gt;1. Quel est l'élément le plus important dans votre récit STAR pour un recruteur ?&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="options"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;label&gt;&lt;input type="radio" name="q1" value="0"&gt; &lt;span&gt;Le contexte détaillé de ma mission (Situation)&lt;/span&gt;&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;label&gt;&lt;input type="radio" name="q1" value="1"&gt; &lt;span&gt;Ce que l'expérience prouve sur ma valeur future&lt;/span&gt;&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;!-- Question 2 --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="question"&gt;2. Pour être efficace, une phrase de positionnement doit être :&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="options"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;label&gt;&lt;input type="radio" name="q2" value="0"&gt; &lt;span&gt;Polyvalente pour ne fermer aucune porte&lt;/span&gt;&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;label&gt;&lt;input type="radio" name="q2" value="1"&gt; &lt;span&gt;Spécifique sur une cible et un problème précis&lt;/span&gt;&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;!-- Question 3 --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="question"&gt;3. L'objectif du "Crash Test" LinkedIn de 5 minutes est de :&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="options"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;label&gt;&lt;input type="radio" name="q3" value="1"&gt; &lt;span&gt;Vérifier si votre vocabulaire correspond au marché&lt;/span&gt;&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;label&gt;&lt;input type="radio" name="q3" value="0"&gt; &lt;span&gt;Postuler directement à 10 offres d'emploi&lt;/span&gt;&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;!-- Question 4 --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="question"&gt;4. Entre Salariat et Indépendant, quel critère est prioritaire ?&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="options"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;label&gt;&lt;input type="radio" name="q4" value="1"&gt; &lt;span&gt;L'équilibre entre attractivité et faisabilité réelle&lt;/span&gt;&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;label&gt;&lt;input type="radio" name="q4" value="0"&gt; &lt;span&gt;L'avis de mon entourage proche&lt;/span&gt;&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button type="button" onclick="calculateScore()"&gt;Calculer mon score&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/form&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="result"&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p class="footer-note"&gt;Marie Tallot Coaching — De l'expérience à la valeur activable [3].&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function calculateScore() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let score = 0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const total = 4;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const form = document.getElementById('quizForm');</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (form.q1.value === "1") score++;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (form.q2.value === "1") score++;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (form.q3.value === "1") score++;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (form.q4.value === "1") score++;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const resultDiv = document.getElementById('result');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>resultDiv.style.display = "block";</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (score === total) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>resultDiv.innerHTML = "Score : " + score + "/" + total + "&lt;br&gt;Bravo ! Votre positionnement est clair et activable.";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>resultDiv.innerHTML = "Score : " + score + "/" + total + "&lt;br&gt;Pas mal ! Revoyez la dimension 'Ce que cela prouve' de vos expériences [4].";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+
+<header>
+  <!-- 👉 ajoute ton fichier logo.png dans GitHub -->
+  <img src="logo.png" alt="Logo">
+  <h1>Quiz Positionnement</h1>
+</header>
+
+<div class="container">
+
+<div class="question">
+  <h3>1. Quel est l’objectif du positionnement ?</h3>
+  <button onclick="check(this, false)">A. Faire un CV</button>
+  <button onclick="check(this, true)">B. Clarifier sa valeur sur le marché</button>
+  <button onclick="check(this, false)">C. Postuler rapidement</button>
+</div>
+
+<div class="question">
+  <h3>2. La méthode STAR sert à :</h3>
+  <button onclick="check(this, true)">A. Structurer ses expériences</button>
+  <button onclick="check(this, false)">B. Trouver un job</button>
+  <button onclick="check(this, false)">C. Faire du réseau</button>
+</div>
+
+<div class="question">
+  <h3>3. Le crash test permet de :</h3>
+  <button onclick="check(this, false)">A. Changer de métier</button>
+  <button onclick="check(this, true)">B. Tester son positionnement</button>
+  <button onclick="check(this, false)">C. Faire un bilan</button>
+</div>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+let score = 0;
+let answered = 0;
+
+function check(button, correct) {
+  if (button.classList.contains("clicked")) return;
+
+  button.classList.add("clicked");
+  answered++;
+
+  if (correct) {
+    button.style.background = "#C3E7EC";
+    score++;
+  } else {
+    button.style.background = "#FCD3C6";
+  }
+
+  if (answered === 3) {
+    document.getElementById("result").innerText =
+      "Score : " + score + " / 3";
+  }
+}
+</script>
+
 </body>
 </html>
